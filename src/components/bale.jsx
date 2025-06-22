@@ -17,6 +17,7 @@ import {
   ChevronDown,
 } from 'lucide-react';
 import '../styles/bale.css';
+import logo from '../assets/logo.svg';
 
 const LandingPage = () => {
   // State management
@@ -193,12 +194,12 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <motion.div
-              className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent"
+              className="flex items-center gap-2 text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Bale
+              <img src={logo} alt="Bale Logo" className="h-18 w-20" />
             </motion.div>
 
             {/* Desktop Menu */}
@@ -712,8 +713,8 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-4">
-                Bale
+              <div className="flex items-center gap-2 text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-4">
+                <img src={logo} alt="Bale Logo" className="h-15 w-20" />
               </div>
               <p className="text-gray-400 leading-relaxed">
                 Creating Hollywood-level videos without a crew, camera, or studio.

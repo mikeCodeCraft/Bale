@@ -797,7 +797,7 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>© 2025 Bale. All rights reserved. Revolutionizing video creation with AI.</p>
+            <p>© 2025 <a href="https://mikecodecraft.vercel.app/">mikeCodeCraft</a>. All rights reserved. Revolutionizing video creation with AI.</p>
           </div>
         </div>
       </footer>

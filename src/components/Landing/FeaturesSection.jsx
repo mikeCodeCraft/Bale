@@ -18,7 +18,7 @@ const FeaturesSection = ({ features }) => (
           </span>
         </h2>
         <p className="text-lg text-gray-300 max-w-2xl mx-auto"> {/* Smaller text */}
-          Our cutting-edge AI technology transforms your ideas into stunning, professional videos that captivate audiences and drive results.
+          We use Cutting edge AI technology to transform your ideas into stunning, professional videos that captivate audiences and drive results.
         </p>
       </motion.div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-7"> {/* Reduced gap */}

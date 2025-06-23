@@ -22,7 +22,7 @@ const TechnologySection = () => (
           We leverage the most advanced AI video generation technologies available today
         </p>
       </motion.div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4"> {/* Reduced gap */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-7"> {/* Reduced gap */}
         {[
           {
             name: 'Google Veo 2 & 3',

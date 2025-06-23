@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Play, Clock, DollarSign, Users, Phone } from 'lucide-react';
+import { Play, Clock, DollarSign, Users } from 'lucide-react';
 
 const BRAND_ORANGE = '#BA3D0A';
 const BRAND_RED = '#A90F0A';
@@ -51,7 +51,7 @@ const HeroSection = ({
       {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10 md:pt-14">
         <motion.div className="max-w-4xl mx-auto" variants={staggerContainer} initial="initial" animate="animate">
-          <motion.h1 className="text-4xl md:text-6xl lg:text-4xl font-bold mb-10 leading-tight" variants={fadeInUp}>
+          <motion.h1 className="text-4xl md:text-6xl lg:text-5xl font-bold mb-10 leading-tight" variants={fadeInUp}>
             Create{' '}
             <span
               className="bg-clip-text text-transparent"
@@ -81,7 +81,6 @@ const HeroSection = ({
               whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(186, 61, 10, 0.3)' }}
               whileTap={{ scale: 0.95 }}
             >
-              <Phone className="w-5 h-5" />
               Book Call
             </motion.button>
             <motion.button

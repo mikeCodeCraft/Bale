@@ -34,7 +34,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => (
             </a>
           ))}
         </div>
-        {/* Right: Book Call and Signup */}
+
         <div className="flex items-center gap-4 absolute right-0 top-1/2 -translate-y-1/2">
           {/* Book Call Button */}
           <a
@@ -43,13 +43,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => (
           >
             Book Call
           </a>
-          {/* Signup Button */}
-          <a
-            href="#signup"
-            className="hidden md:inline-block px-6 py-2 rounded-full font-semibold bg-gradient-to-r from-[#BA3D0A] via-[#A90F0A] to-[#000000] hover:from-[#A90F0A] hover:to-[#000000] transition text-white shadow focus:outline-none focus:ring-2 focus:ring-[#BA3D0A] focus:ring-offset-2"
-          >
-            Sign Up
-          </a>
+
           {/* Mobile Menu Button (unchanged) */}
           <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

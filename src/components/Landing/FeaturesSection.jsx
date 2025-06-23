@@ -25,7 +25,7 @@ const FeaturesSection = ({ features }) => (
         {features.map((feature, index) => (
           <motion.div
             key={index}
-            className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 hover:border-gray-600 transition-all duration-500 p-4" // Smaller border radius and padding
+            className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-black border border-red-800 hover:border-red-600 transition-all duration-500 p-4" // Smaller border radius and padding
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, Clock, DollarSign, Users } from 'lucide-react';
+import { Play, Clock, DollarSign, Users, Phone } from 'lucide-react';
 
 const BRAND_ORANGE = '#BA3D0A';
 const BRAND_RED = '#A90F0A';
@@ -51,7 +51,7 @@ const HeroSection = ({
       {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10 md:pt-14">
         <motion.div className="max-w-4xl mx-auto" variants={staggerContainer} initial="initial" animate="animate">
-          <motion.h1 className="text-4xl md:text-6xl lg:text-5xl font-bold mb-10 leading-tight" variants={fadeInUp}>
+          <motion.h1 className="text-4xl md:text-6xl lg:text-4xl font-bold mb-10 leading-tight" variants={fadeInUp}>
             Create{' '}
             <span
               className="bg-clip-text text-transparent"
@@ -67,7 +67,7 @@ const HeroSection = ({
             <span className="block mt-4">Without a Crew, Camera, or Studio</span>
           </motion.h1>
           <motion.p
-            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-xl mx-auto leading-relaxed"
             variants={fadeInUp}
           >
             Bale helps brands create premium video content{' '}
@@ -81,8 +81,8 @@ const HeroSection = ({
               whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(186, 61, 10, 0.3)' }}
               whileTap={{ scale: 0.95 }}
             >
-              Start Creating Now
-              <ArrowRight className="w-5 h-5" />
+              <Phone className="w-5 h-5" />
+              Book Call
             </motion.button>
             <motion.button
               className="border border-gray-600 hover:border-gray-400 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 backdrop-blur-sm bg-white/5 hover:bg-white/10 transition-all duration-300"
@@ -93,11 +93,12 @@ const HeroSection = ({
               Watch Demo
             </motion.button>
           </motion.div>
+
           <motion.div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center" variants={fadeInUp}>
             {[
-              { icon: <Clock className="w-8 h-8 mx-auto mb-2 text-blue-400" />, title: '10x Faster', desc: 'Production Speed' },
-              { icon: <DollarSign className="w-8 h-8 mx-auto mb-2 text-green-400" />, title: '90% Cheaper', desc: 'Than Traditional' },
-              { icon: <Users className="w-8 h-8 mx-auto mb-2 text-purple-400" />, title: '500+', desc: 'Happy Clients' },
+              { icon: <Clock className="w-8 h-8 mx-auto mb-2 text-red-400" />, title: '10x Faster', desc: 'Production Speed' },
+              { icon: <DollarSign className="w-8 h-8 mx-auto mb-2 text-orange-400" />, title: '90% Cheaper', desc: 'Than Traditional' },
+              { icon: <Users className="w-8 h-8 mx-auto mb-2 text-black-400" />, title: '500+', desc: 'Happy Clients' },
             ].map((stat, index) => (
               <motion.div
                 key={index}

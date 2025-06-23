@@ -7,7 +7,7 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <div className="flex items-center gap-2 text-2xl font-bold bg-gradient-to-r from-red-400 to-orange-600 bg-clip-text text-transparent mb-4">
-            <img src={logo} alt="Bale Logo" className="h-15 w-20" />
+            <img src={logo} alt="Bale Logo" className="h-25 w-20" />
           </div>
           <p className="text-gray-400 leading-relaxed">
             Creating Hollywood-level videos without a crew, camera, or studio.

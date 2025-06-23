@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 
 const FinalCTASection = () => (
   <section className="py-8 relative overflow-hidden"> {/* Reduced vertical padding */}
-    <div className="absolute inset-0 bg-gradient-to-br from-orange-900/30 to-red-900/30" />
+    <div className="absolute inset-0 " />
     <div className="max-w-xl mx-auto px-2 sm:px-4 lg:px-6 text-center relative z-10"> {/* Reduced max width and padding */}
       <motion.div
         initial={{ opacity: 0, y: 60 }}
@@ -29,7 +29,7 @@ const FinalCTASection = () => (
           Book Free Call
           
         </motion.button>
-        <p className="text-gray-400 mt-2 text-sm">No credit card required </p> {/* Smaller text */}
+       
       </motion.div>
     </div>
   </section>

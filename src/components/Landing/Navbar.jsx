@@ -9,18 +9,18 @@ const BRAND_BLACK = '#000000';
 const BRAND_WHITE = '#FFFFFF';
 
 const Navbar = ({ isMenuOpen, setIsMenuOpen }) => (
-  <nav className="fixed top-0 w-full z-50 pt-6" style={{ background: `${BRAND_BLACK}CC`, backdropFilter: 'blur(8px)' }}>
+  <nav className="fixed top-0 w-full z-50 pt-2" style={{ background: `${BRAND_BLACK}CC`, backdropFilter: 'blur(8px)' }}>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="relative flex items-center justify-between h-20">
         {/* Logo Left */}
         <motion.div
-          className="flex items-center gap-2 text-2xl font-bold bg-gradient-to-r bg-clip-text text-transparent absolute left-0 top-1/2 -translate-y-1/2"
+          className="flex items-center gap-2 text-2xl font-bold bg-gradient-to-r bg-clip-text text-transparent absolute left-0 top-[20%] -translate-y-1/2"
           style={{ backgroundImage: `linear-gradient(to right, ${BRAND_ORANGE}, ${BRAND_RED}, ${BRAND_BLACK}, ${BRAND_WHITE})` }}
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <img src={logo} alt="Bale Logo" className="h-18 w-20" />
+          <img src={logo} alt="Bale Logo" className="h-18 w-25" />
         </motion.div>
         {/* Centered Menu */}
         <div className="hidden md:flex flex-1 justify-center space-x-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Clock, DollarSign, Users } from 'lucide-react';
 
@@ -6,6 +6,110 @@ const BRAND_ORANGE = '#BA3D0A';
 const BRAND_RED = '#A90F0A';
 const BRAND_BLACK = '#000000';
 const BRAND_WHITE = '#FFFFFF';
+
+// Simple Particle Background Component
+const ParticleBackground = () => {
+  const canvasRef = useRef(null);
+  const particlesRef = useRef([]);
+  const animationIdRef = useRef(null);
+  const dpr = window.devicePixelRatio || 1;
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    let running = true;
+
+    let numParticles = Math.floor(width / 32);
+
+    // Set canvas dimensions and scaling
+    function setCanvasSize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
+    }
+
+    // Create or update particles
+    function createParticles() {
+      numParticles = Math.floor(width / 32);
+      if (particlesRef.current.length !== numParticles || particlesRef.current.length === 0) {
+        particlesRef.current = Array.from({ length: numParticles }, () => ({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: 2 + Math.random() * 1.5,
+          dx: -0.2 + Math.random() * 0.4,
+          dy: -0.2 + Math.random() * 0.4,
+          opacity: 0.4 + Math.random() * 0.6,
+        }));
+      }
+    }
+
+    function draw() {
+      if (!running) return;
+      ctx.clearRect(0, 0, width, height);
+      // Always ensure particles exist
+      if (particlesRef.current.length === 0) {
+        createParticles();
+      }
+      for (const p of particlesRef.current) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
+        ctx.fillStyle = `rgba(255,255,255,${p.opacity})`;
+        ctx.shadowColor = '#BA3D0A';
+        ctx.shadowBlur = 10;
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        // Wrap around edges
+        if (isNaN(p.x) || isNaN(p.y)) {
+          // If a particle's position becomes NaN, reset it
+          p.x = Math.random() * width;
+          p.y = Math.random() * height;
+        }
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+      }
+      animationIdRef.current = requestAnimationFrame(draw);
+    }
+
+    setCanvasSize();
+    createParticles();
+    running = true;
+    animationIdRef.current = requestAnimationFrame(draw);
+    window.addEventListener('resize', () => {
+      setCanvasSize();
+      createParticles();
+    });
+
+    return () => {
+      running = false;
+      window.removeEventListener('resize', () => {
+        setCanvasSize();
+        createParticles();
+      });
+      cancelAnimationFrame(animationIdRef.current);
+    };
+  }, [dpr]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full z-0 pointer-events-none"
+      style={{ opacity: 0.5 }}
+      aria-hidden="true"
+    />
+  );
+};
+
 const HeroSection = ({
   heroBackgroundY,
   heroOpacity,
@@ -39,6 +143,8 @@ const HeroSection = ({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
+      {/* Particle Background */}
+      <ParticleBackground />
       {/* Animated Gradient Background */}
       <motion.div
         className="absolute inset-0 z-0 pointer-events-none"
@@ -76,10 +182,10 @@ const HeroSection = ({
           </motion.p>
           <motion.div className="flex flex-col sm:flex-row gap-4 justify-center items-center" variants={fadeInUp}>
             <motion.button
-              className="border-2 border-[#A90F0A] text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 shadow-2xl hover:shadow-orange-800/25 transition-all duration-300"
+              className="border-2 border-[#A90F0A] text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 shadow-lg hover:shadow-orange-800/10 transition-all duration-200"
               style={{ backgroundImage: 'linear-gradient(45deg, #BA3D0A -88%, #000000 70%)' }}
-              whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(186, 61, 10, 0.3)' }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02, boxShadow: '0 10px 20px rgba(186, 61, 10, 0.10)' }}
+              whileTap={{ scale: 0.97 }}
             >
               Book Call
             </motion.button>

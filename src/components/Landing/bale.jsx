@@ -130,7 +130,7 @@ const LandingPage = () => {
         '3 videos per month',
         'Basic editing & rendering',
         'Script assistance',
-        'Email support',
+        
         'HD quality output',
       ],
       popular: false,

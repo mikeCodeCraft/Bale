@@ -26,10 +26,10 @@ const FinalCTASection = () => (
           whileHover={{ scale: 1.05, boxShadow: '0 25px 50px rgba(59, 130, 246, 0.4)' }}
           whileTap={{ scale: 0.95 }}
         >
-          Start Your Free Trial
+          Book Free Call
           <ArrowRight className="w-6 h-6" />
         </motion.button>
-        <p className="text-gray-400 mt-4">No credit card required • Cancel anytime • 14-day free trial</p>
+        <p className="text-gray-400 mt-4">No credit card required </p>
       </motion.div>
     </div>
   </section>

@@ -21,7 +21,7 @@ const techList = [
 
 const TechnologySection = () => (
   <section className="py-10 relative overflow-hidden">
-    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20" />
+    <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 to-orange-900/20" />
     <div className="max-w-5xl mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
       <motion.div
         className="text-center mb-8"
@@ -32,7 +32,7 @@ const TechnologySection = () => (
       >
         <h2 className="text-2xl md:text-3xl font-bold mb-2">
           Powered by{' '}
-          <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-red-400 to-orange-600 bg-clip-text text-transparent">
             Cutting-Edge AI
           </span>
         </h2>
@@ -45,7 +45,7 @@ const TechnologySection = () => (
           {techList.concat(techList).map((tech, index) => (
             <motion.div
               key={index}
-              className="backdrop-blur-md bg-white/5 rounded-2xl p-6 border border-gray-800 hover:border-blue-500 transition-all duration-300 group cursor-pointer flex-shrink-0 w-64 hover:scale-110"
+              className="backdrop-blur-md bg-white/5 rounded-2xl p-6 border border-gray-800 hover:border-red-500 transition-all duration-300 group cursor-pointer flex-shrink-0 w-64 hover:scale-110"
               whileHover={{ scale: 1.15 }}
               style={{ minWidth: '16rem' }}
             >

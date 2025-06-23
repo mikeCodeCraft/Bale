@@ -3,7 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import './styles/index.css';
 
-import LandingPage from './components/bale';  
+import LandingPage from './components/Landing/bale'; 
+import NotFound from './components/Landing/NotFound'; 
 
 const App = () => {
   return (
@@ -11,7 +12,7 @@ const App = () => {
       
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {/* <Route path="/landing" element={<LandingPage />} /> */}
 

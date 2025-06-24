@@ -4,7 +4,7 @@ const BRAND_ORANGE = '#BA3D0A';
 const BRAND_RED = '#A90F0A';
 
 const HowItWorksSection = () => (
-  <section className="py-1 bg-gradient-to-br from-orange-900/10 to-red-900/10">
+  <section className="py-9 bg-gradient-to-br from-orange-900/10 to-red-900/10">
     <div className="max-w-6xl mx-auto px-4">
       <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(to right, ${BRAND_ORANGE}, ${BRAND_RED})`, WebkitBackgroundClip: 'text' }}>
         Prompt to Finality

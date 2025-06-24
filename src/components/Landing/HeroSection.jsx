@@ -158,10 +158,9 @@ const HeroSection = ({
       {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10 md:pt-14">
         <motion.div className="max-w-4xl mx-auto" variants={staggerContainer} initial="initial" animate="animate">
-          <motion.h1 className="text-4xl md:text-6xl lg:text-5xl font-bold mb-10 leading-tight" variants={fadeInUp}>
-           
+          <motion.h1 className="text-4xl md:text-6xl lg:text-5xl font-extrabold mb-10 leading-tight" variants={fadeInUp}>
             <span
-              className="bg-clip-text text-transparent"
+              className="bg-clip-text text-transparent font-extrabold"
               style={{
                 backgroundImage: `linear-gradient(to right, ${BRAND_ORANGE}, ${BRAND_RED})`,
                 WebkitBackgroundClip: 'text',
@@ -171,7 +170,7 @@ const HeroSection = ({
               Hollywood-Level Videos
             </span>
             <br />
-            <span className="block mt-4"> Zero Camera Crews.</span>
+            <span className="block mt-4 font-extrabold"> Zero Camera Crews.</span>
           </motion.h1>
           <motion.p
             className="text-xl md:text-2xl text-gray-300 mb-8 max-w-xl mx-auto leading-relaxed"

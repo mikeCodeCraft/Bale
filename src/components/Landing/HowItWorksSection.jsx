@@ -4,10 +4,13 @@ const BRAND_ORANGE = '#BA3D0A';
 const BRAND_RED = '#A90F0A';
 
 const HowItWorksSection = () => (
-  <section className="py-20 md:py-32 bg-gradient-to-br from-orange-900/10 to-red-900/10">
-    <div className="max-w-6xl mx-auto px-4">
-      <h2 className="text-2xl md:text-3xl font-bold mb-3 text-center bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(to right, ${BRAND_ORANGE}, ${BRAND_RED})`, WebkitBackgroundClip: 'text' }}>
-        Prompt to Finality
+  <section className="py-20 md:py-30 ">
+    <div className="max-w-6xl mx-auto px-4 mt-[-2.5rem] ">
+      <h2 className="text-2xl md:text-3xl font-bold mb-16 text-center bg-clip-text ">
+      Prompt to {' '}
+      <span className="bg-gradient-to-r from-red-400 to-orange-600 bg-clip-text text-transparent">
+          Finality
+        </span>
       </h2>
       <div className="grid md:grid-cols-2 gap-20 md:gap-0 items-center">
         {/* Image Left */}
@@ -20,7 +23,7 @@ const HowItWorksSection = () => (
           />
         </div>
         {/* Text Right */}
-        <div className="md:pl-1">
+        <div className="md:pl-1 ">
           <h2 className="text-1.5xl md:text-2xl font-bold mb-4 bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(to right, ${BRAND_ORANGE}, ${BRAND_RED})`, WebkitBackgroundClip: 'text' }}>
             How It Works
           </h2>
@@ -36,11 +39,11 @@ const HowItWorksSection = () => (
 );
 
 const WhatYouGetSection = () => (
-  <section className="py-6 md:py-0 bg-gradient-to-br from-orange-900/10 to-red-900/10">
+  <section className="py-6 md:py-0 ">
     <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-20 md:gap-0 items-center">
       {/* Text Left */}
       
-      <div className="order-2 md:order-1 md:pr-24 flex flex-col items-start md:items-end md:text-left w-full">
+      <div className="order-2 md:order-1 md:pr-24 flex flex-col items-start md:items-end md:text-left w-full ">
         <h2 className="text-1.5xl md:text-2xl font-bold mb-4 bg-clip-text text-transparent text-left w-full md:w-auto" style={{ backgroundImage: `linear-gradient(to right, ${BRAND_ORANGE}, ${BRAND_RED})`, WebkitBackgroundClip: 'text' }}>
           What You Get
         </h2>

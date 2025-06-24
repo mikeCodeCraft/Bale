@@ -6,12 +6,13 @@ const BRAND_RED = '#A90F0A';
 const HowItWorksSection = () => (
   <section className="py-20 md:py-30 ">
     <div className="max-w-6xl mx-auto px-4 mt-[-2.5rem] ">
-      <h2 className="text-2xl md:text-3xl font-bold mb-16 text-center bg-clip-text ">
+      <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center bg-clip-text ">
       Prompt to {' '}
       <span className="bg-gradient-to-r from-red-400 to-orange-600 bg-clip-text text-transparent">
           Finality
         </span>
       </h2>
+      
       <div className="grid md:grid-cols-2 gap-20 md:gap-0 items-center">
         {/* Image Left */}
         <div className="flex justify-end md:pr-10">

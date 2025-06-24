@@ -28,7 +28,7 @@ const HowItWorksSection = () => (
           <h2 className="text-1.5xl md:text-2xl font-bold mb-4 bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(to right, ${BRAND_ORANGE}, ${BRAND_RED})`, WebkitBackgroundClip: 'text' }}>
             How It Works
           </h2>
-          <ul className="list-disc pl-6 text-gray-300 space-y-3 text-base md:text-lg">
+          <ul className="list-disc pl-6 text-gray-300 space-y-3 text-base ">
             <li>Plug-In: Share a brief or jump on a 15-minute strategy call.</li>
             <li>Prompt-to-Production: We script, storyboard, and generate polished footage</li>
             <li>Polish & Publish: You receive ready-to-post assets</li>
@@ -44,11 +44,12 @@ const WhatYouGetSection = () => (
     <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-20 md:gap-0 items-center">
       {/* Text Left */}
       
-      <div className="order-2 md:order-1 md:pr-24 flex flex-col items-start md:items-end md:text-left w-full ">
+      <div className="order-2 md:order-1 md:pr-10 md:pl-16">
         <h2 className="text-1.5xl md:text-2xl font-bold mb-4 bg-clip-text text-transparent text-left w-full md:w-auto" style={{ backgroundImage: `linear-gradient(to right, ${BRAND_ORANGE}, ${BRAND_RED})`, WebkitBackgroundClip: 'text' }}>
           What You Get
         </h2>
-        <ul className="list-disc pl-6 text-gray-300 space-y-3 text-base md:text-lg">
+        
+        <ul className="list-disc pl-6 text-gray-300 space-y-3 text-base ">
           <li>4K, hyper-realistic generative video</li>
           <li>Voiceover, SFX, motion graphics included</li>
           <li>Platform-specific cuts (TikTok, Reels, Shorts)

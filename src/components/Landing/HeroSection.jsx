@@ -159,7 +159,7 @@ const HeroSection = ({
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10 md:pt-14">
         <motion.div className="max-w-4xl mx-auto" variants={staggerContainer} initial="initial" animate="animate">
           <motion.h1 className="text-4xl md:text-6xl lg:text-5xl font-bold mb-10 leading-tight" variants={fadeInUp}>
-            Create{' '}
+           
             <span
               className="bg-clip-text text-transparent"
               style={{
@@ -225,12 +225,4 @@ const HeroSection = ({
   );
 };
 
-export default function HeroSectionWrapper(props) {
-  return (
-    <>
-      <HeroSection {...props} />
-      <HowItWorksSection />
-      <WhatYouGetSection />
-    </>
-  );
-}
+export { HeroSection };

@@ -19,7 +19,8 @@ import {
 import '../../styles/bale.css';
 import logo from '../../assets/logo.svg';
 import Navbar from './Navbar';
-import HeroSection from './HeroSection';
+import { HeroSection } from './HeroSection';
+import { HowItWorksSection, WhatYouGetSection } from './HowItWorksSection';
 import Footer from './Footer';
 import PricingSection from './PricingSection';
 import TechnologySection from './TechnologySection';
@@ -229,21 +230,19 @@ const LandingPage = () => {
         fadeInUp={fadeInUp}
         staggerContainer={staggerContainer}
       />
-      {/* Features Section */}
       <FeaturesSection features={features} />
+      <HowItWorksSection />
+      <WhatYouGetSection />
       <TechnologySection />
       <TestimonialsSection
         testimonials={testimonials}
         activeTestimonial={activeTestimonial}
         setActiveTestimonial={setActiveTestimonial}
       />
-
       {/* Pricing Section */}
       <PricingSection pricingPlans={pricingPlans} />
-
       {/* FAQ Section */}
       <FAQSection faqs={faqs} openFaq={openFaq} setOpenFaq={setOpenFaq} />
-
       <FinalCTASection />
       <Footer />
     </div>

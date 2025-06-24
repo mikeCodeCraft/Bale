@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Clock, DollarSign, Users } from 'lucide-react';
+import { HowItWorksSection, WhatYouGetSection } from './HowItWorksSection';
 
 const BRAND_ORANGE = '#BA3D0A';
 const BRAND_RED = '#A90F0A';
@@ -170,7 +171,7 @@ const HeroSection = ({
               Hollywood-Level Videos
             </span>
             <br />
-            <span className="block mt-4">Without a Crew, Camera, or Studio</span>
+            <span className="block mt-4"> Zero Camera Crews.</span>
           </motion.h1>
           <motion.p
             className="text-xl md:text-2xl text-gray-300 mb-8 max-w-xl mx-auto leading-relaxed"
@@ -224,4 +225,12 @@ const HeroSection = ({
   );
 };
 
-export default HeroSection;
+export default function HeroSectionWrapper(props) {
+  return (
+    <>
+      <HeroSection {...props} />
+      <HowItWorksSection />
+      <WhatYouGetSection />
+    </>
+  );
+}

@@ -20,7 +20,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => (
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <img src={logo} alt="Bale Logo" className="h-18 w-25" />
+          <img src={logo} alt="Bale Logo" className="h-10 w-23" />
         </motion.div>
         {/* Centered Menu */}
         <div className="hidden md:flex flex-1 justify-center space-x-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">

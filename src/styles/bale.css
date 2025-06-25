@@ -21,7 +21,6 @@ body {
   position: relative;
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -36,17 +35,15 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #2563eb, #7c3aed);
+  background: linear-gradient(to bottom, #fff, #BA3D0A);
 }
 
-/* Glassmorphism Effects */
 .glass {
   backdrop-filter: blur(12px);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Gradient Text Animation */
 @keyframes gradient-shift {
   0% {
     background-position: 0% 50%;
@@ -60,7 +57,7 @@ body {
 }
 
 .animate-gradient {
-  background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #10b981, #fbbf24);
+  background: linear-gradient(-45deg, #fff,  #BA3D0A, #A90F0A);
   background-size: 400% 400%;
   animation: gradient-shift 8s ease infinite;
   -webkit-background-clip: text;
@@ -68,7 +65,6 @@ body {
   color: transparent;
 }
 
-/* Floating Particles Animation */
 @keyframes float {
   0%,
   100% {
@@ -83,7 +79,6 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Custom Button Hover Effects */
 .btn-primary {
   position: relative;
   overflow: hidden;
@@ -105,7 +100,6 @@ body {
   left: 100%;
 }
 
-/* Responsive Design Helpers */
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem;
@@ -118,7 +112,6 @@ body {
   }
 }
 
-/* Loading Spinner */
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -129,7 +122,6 @@ body {
   animation: spin 1s linear infinite;
 }
 
-/* Smooth Transitions for Interactive Elements */
 a,
 button,
 input,
@@ -138,24 +130,21 @@ select {
   transition: all 0.2s ease-in-out;
 }
 
-/* Focus States for Accessibility */
 button:focus,
 a:focus,
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #fff;
   outline-offset: 2px;
 }
 
-/* Image Optimization */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Performance Optimizations */
 .will-change-transform {
   will-change: transform;
 }
@@ -164,7 +153,6 @@ img {
   will-change: opacity;
 }
 
-/* Custom Utility Classes */
 .text-shadow {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -178,7 +166,6 @@ img {
   background-size: 20px 20px;
 }
 
-/* Animation Delays for Staggered Effects */
 .delay-100 {
   animation-delay: 100ms;
 }
@@ -199,7 +186,6 @@ img {
   animation-delay: 500ms;
 }
 
-/* Ensure Smooth Performance on Mobile */
 @media (max-width: 768px) {
   * {
     -webkit-transform: translateZ(0);

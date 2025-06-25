@@ -30,17 +30,14 @@ import FeaturesSection from './FeaturesSection';
 import FAQSection from './FAQSection';
 
 const LandingPage = () => {
-  // State management
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [openFaq, setOpenFaq] = useState(null);
   const { scrollYProgress } = useScroll();
 
-  // Scroll-based animations
   const heroBackgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
-  // Auto-rotate testimonials
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -48,7 +45,6 @@ const LandingPage = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Animation variants
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -63,36 +59,36 @@ const LandingPage = () => {
     },
   };
 
-  // Data for features section
   const features = [
     {
       icon: <Video className="w-8 h-8" />,
-      title: 'AI-Generated Videos',
-      description:
-        'From product explainers to emotional brand stories, created with cutting-edge AI technology.',
+      title: 'Become a Story Brand',
+      description:(<>
+        We don’t just generate clips—we craft <strong>brand stories</strong>. Your concept is fed through our AI storytelling engine to emerge as a polished, emotionally charged video that audiences remember and share.</>),
       image: 'https://images.unsplash.com/photo-1588524806723-19c4dfd2bc17',
     },
     {
       icon: <Wand2 className="w-8 h-8" />,
-      title: 'Script to Video Pipeline',
-      description: 'End-to-end content creation from simple prompts to polished video renders.',
+      title: 'Prompt-to-Premiere Workflow',
+      description:(<> Hand us a one-line prompt; get back a studio-quality production. Scripting, storyboarding, voice, SFX, and edits—all handled in days, not months.</>),
       image: 'https://images.unsplash.com/photo-1543336472-fcf478c443db',
     },
     {
       icon: <Sparkles className="w-8 h-8" />,
-      title: 'Motion Design & 3D',
-      description: 'Animated logo reveals, product spins, and immersive scenes that captivate audiences.',
+      title: 'Immersive Visual Effects',
+      description: (
+        <>Kinetic typography, dynamic transitions, and tactile 3D elements fuse together to <strong>add depth, drama, and “wow”</strong> to every frame—no physical set or camera crew required.</>
+      ),
       image: 'https://images.pexels.com/photos/9667639/pexels-photo-9667639.jpeg',
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: 'Social Content Packages',
-      description: 'Reels, Shorts, TikToks optimized for each platform with viral potential.',
+      title: ' Social Media Optimized',
+      description:(<> Swipe-stopping Reels, Shorts, and TikToks— <strong>formatted, captioned, and hook-tested </strong> for each platform so your content doesn’t just play; it performs.</>),
       image: 'https://images.pexels.com/photos/9667555/pexels-photo-9667555.jpeg',
     },
   ];
 
-  // Data for testimonials section
   const testimonials = [
     {
       name: 'Sarah Chen',
@@ -120,7 +116,6 @@ const LandingPage = () => {
     },
   ];
 
-  // Data for pricing section
   const pricingPlans = [
     {
       name: 'Starter',
@@ -131,7 +126,6 @@ const LandingPage = () => {
         '3 videos per month',
         'Basic editing & rendering',
         'Script assistance',
-        
         'HD quality output',
       ],
       popular: false,
@@ -168,7 +162,6 @@ const LandingPage = () => {
     },
   ];
 
-  // Data for FAQ section
   const faqs = [
     {
       question: 'How does AI video generation work?',
@@ -200,7 +193,6 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
       <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -239,9 +231,7 @@ const LandingPage = () => {
         activeTestimonial={activeTestimonial}
         setActiveTestimonial={setActiveTestimonial}
       />
-      {/* Pricing Section */}
       <PricingSection pricingPlans={pricingPlans} />
-      {/* FAQ Section */}
       <FAQSection faqs={faqs} openFaq={openFaq} setOpenFaq={setOpenFaq} />
       <FinalCTASection />
       <Footer />

@@ -14,7 +14,6 @@ const HowItWorksSection = () => (
       </h2>
       
       <div className="grid md:grid-cols-2 gap-20 md:gap-0 items-center">
-        {/* Image Left */}
         <div className="flex justify-end md:pr-10">
           <img
             src="how.jpg"
@@ -23,7 +22,6 @@ const HowItWorksSection = () => (
             style={{ background: `linear-gradient(135deg, ${BRAND_ORANGE}22 0%, ${BRAND_RED}22 100%)` }}
           />
         </div>
-        {/* Text Right */}
         <div className="md:pl-1 ">
           <h2 className="text-1.5xl md:text-2xl font-bold mb-4 bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(to right, ${BRAND_ORANGE}, ${BRAND_RED})`, WebkitBackgroundClip: 'text' }}>
             How It Works
@@ -42,8 +40,6 @@ const HowItWorksSection = () => (
 const WhatYouGetSection = () => (
   <section className="py-6 md:py-0 ">
     <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-20 md:gap-0 items-center">
-      {/* Text Left */}
-      
       <div className="order-2 md:order-1 md:pr-10 md:pl-16">
         <h2 className="text-1.5xl md:text-2xl font-bold mb-4 bg-clip-text text-transparent text-left w-full md:w-auto" style={{ backgroundImage: `linear-gradient(to right, ${BRAND_ORANGE}, ${BRAND_RED})`, WebkitBackgroundClip: 'text' }}>
           What You Get
@@ -56,7 +52,6 @@ const WhatYouGetSection = () => (
           </li>
         </ul>
       </div>
-      {/* Image Right */}
       <div className="order-1 md:order-2 flex justify-start md:pl-10">
         <img
           src="what.jpg"

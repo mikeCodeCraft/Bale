@@ -22,7 +22,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => (
         >
           <img src={logo} alt="Bale Logo" className="h-10 w-23" />
         </motion.div>
-        {/* Centered Menu */}
+       
         <div className="hidden md:flex flex-1 justify-center space-x-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           {['Features', 'Pricing', 'Testimonials', 'FAQ'].map((item) => (
             <a
@@ -36,7 +36,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => (
         </div>
 
         <div className="flex items-center gap-4 absolute right-0 top-1/2 -translate-y-1/2">
-          {/* Book Call Button */}
+          
           <a
             href="#book-call"
             className="hidden md:inline-block px-6 py-2 rounded-full font-semibold border-2 border-[#BA3D0A] text-[#BA3D0A] bg-transparent hover:bg-[#BA3D0A] hover:text-white transition shadow focus:outline-none focus:ring-2 focus:ring-[#BA3D0A] focus:ring-offset-2"
@@ -44,7 +44,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => (
             Book Call
           </a>
 
-          {/* Mobile Menu Button (unchanged) */}
           <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>

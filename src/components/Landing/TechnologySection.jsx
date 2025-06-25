@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const techList = [
   {
     name: 'Google Veo 2 & 3',
-    description: 'Next-generation video synthesis with unprecedented quality and control',
+    description: 'Sound, Voices, Physics, hyper quality',
     image: 'https://images.unsplash.com/photo-1714779573250-36242918e044',
   },
   {
@@ -40,7 +40,7 @@ const TechnologySection = () => (
           We leverage the most advanced AI video generation technologies available today
         </p>
       </motion.div>
-      <div className="relative w-full overflow-x-hidden min-h-[30rem] flex items-center"> {/* Increased min height and center content vertically */}
+      <div className="relative w-full overflow-x-hidden min-h-[30rem] flex items-center"> 
         <div className="marquee flex w-max gap-8 animate-marquee hover:[animation-play-state:paused]">
           {techList.concat(techList).map((tech, index) => (
             <motion.div
@@ -49,7 +49,7 @@ const TechnologySection = () => (
               whileHover={{ scale: 1.15 }}
               style={{ minWidth: '16rem' }}
             >
-              <div className="relative h-40 rounded-lg overflow-hidden mb-4"> {/* Increased card image height */}
+              <div className="relative h-40 rounded-lg overflow-hidden mb-4"> 
                 <img
                   src={tech.image}
                   alt={tech.name}

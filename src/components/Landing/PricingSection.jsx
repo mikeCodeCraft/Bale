@@ -3,25 +3,26 @@ import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
 const PricingSection = ({ pricingPlans }) => (
-  <section id="pricing" className="py-10 relative"> {/* Reduced vertical padding */}
+  <section id="pricing" className="py-10 relative"> 
     <div className="absolute inset-0 " />
-    <div className="max-w-4xl mx-auto px-2 sm:px-4 lg:px-6 relative z-10"> {/* Reduced max width and padding */}
+    <div className="max-w-4xl mx-auto px-2 sm:px-4 lg:px-6 relative z-10"> 
       <motion.div
-        className="text-center mb-8" // Reduced margin bottom
+        className="text-center mb-8" 
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-2xl md:text-3xl font-bold mb-3"> {/* Smaller heading */}
-          Choose Your{' '}
+        <h2 className="text-2xl md:text-3xl font-bold mb-3"> 
+          No Risk,{' '}
           <span className="bg-gradient-to-r from-red-400 to-orange-600 bg-clip-text text-transparent">
-            Creative Plan
+            All Reward
           </span>
         </h2>
-        <p className="text-base text-gray-300">Flexible pricing to match your video content needs</p> {/* Smaller text */}
+        <p className="text-base text-gray-300">30-Days “Double-Value” Guarantee. 30-Days 
+If your first month’s videos aren’t worth at least 2× what you paid, we work free until they are</p>
       </motion.div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-7 items-stretch"> {/* Added items-stretch for equal height */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-7 items-stretch"> 
         {pricingPlans.map((plan, index) => (
           <motion.div
             key={index}
@@ -40,7 +41,7 @@ const PricingSection = ({ pricingPlans }) => (
                 </span>
               </div>
             )}
-            <div className="text-center mb-4"> {/* Reduced margin */}
+            <div className="text-center mb-4"> 
               <h3 className="text-lg font-bold mb-1">{plan.name}</h3>
               <p className="text-gray-400 mb-2 text-sm">{plan.description}</p>
               <div className="flex items-baseline justify-center">
@@ -48,7 +49,7 @@ const PricingSection = ({ pricingPlans }) => (
                 <span className="text-gray-400 ml-1 text-sm">{plan.period}</span>
               </div>
             </div>
-            <ul className="space-y-2 mb-4 flex-1"> {/* Make features list take up remaining space */}
+            <ul className="space-y-2 mb-4 flex-1"> 
               {plan.features.map((feature, featureIndex) => (
                 <li key={featureIndex} className="flex items-center gap-2 text-sm">
                   <Check className="w-4 h-4 text-green-500 flex-shrink-0" />
@@ -56,7 +57,7 @@ const PricingSection = ({ pricingPlans }) => (
                 </li>
               ))}
             </ul>
-            <div className="mt-auto"> {/* Push button to bottom */}
+            <div className="mt-auto"> 
               <button
                 className={`w-full py-2 rounded-md font-semibold text-base transition-all duration-300 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white shadow-md hover:shadow-lg`}
               >

@@ -186,9 +186,3 @@ img {
   animation-delay: 500ms;
 }
 
-@media (max-width: 768px) {
-  * {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
-}

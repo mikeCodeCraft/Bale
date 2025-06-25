@@ -176,7 +176,7 @@ const HeroSection = ({
             className="text-xl md:text-2xl text-gray-300 mb-8 max-w-xl mx-auto leading-relaxed"
             variants={fadeInUp}
           >
-            Bale helps brands create premium video content{' '}
+            At Bale, we help brands create premium video content{' '}
             <span className="text-[#BA3D0A] font-semibold">10x faster</span> and{' '}
             <span className="text-[#A90F0A] font-semibold">cheaper</span> using state-of-the-art AI
           </motion.p>

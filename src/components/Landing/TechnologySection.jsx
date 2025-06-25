@@ -5,17 +5,22 @@ const techList = [
   {
     name: 'Google Veo 2 & 3',
     description: 'Sound, Voices, Physics, hyper quality',
-    image: 'https://images.unsplash.com/photo-1714779573250-36242918e044',
+    image: 'voice.jpg',
   },
   {
-    name: 'Kling AI',
-    description: 'Dynamic storytelling and motion graphics with cinematic precision',
-    image: 'https://images.pexels.com/photos/9667555/pexels-photo-9667555.jpeg',
+    name: 'Kling 2',
+    description: 'Double the cinematic, twice the pro',
+    image: 'cenema.jpg',
   },
   {
-    name: 'Custom Models',
-    description: 'Proprietary AI trained on premium content for unique brand experiences',
-    image: 'https://images.unsplash.com/photo-1627736619924-ce9f159dedca',
+    name: 'Minimax Hailuo',
+    description: 'More realistic and consistent',
+    image: 'real.jpg',
+  },
+  {
+    name: 'Mini Max Director',
+    description: 'control camera movements',
+    image: 'cam_focus.jpg',
   },
 ];
 

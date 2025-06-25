@@ -18,7 +18,6 @@ import {
 } from 'lucide-react';
 import '../../styles/bale.css';
 import logo from '../../assets/logo.svg';
-import Navbar from './Navbar';
 import { HeroSection } from './HeroSection';
 import { HowItWorksSection, WhatYouGetSection } from './HowItWorksSection';
 import Footer from './Footer';
@@ -28,11 +27,13 @@ import TestimonialsSection from './TestimonialsSection';
 import FinalCTASection from './FinalCTASection';
 import FeaturesSection from './FeaturesSection';
 import FAQSection from './FAQSection';
+import Preload from './Preload';
 
 const LandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [openFaq, setOpenFaq] = useState(null);
+  const [loading, setLoading] = useState(true);
   const { scrollYProgress } = useScroll();
 
   const heroBackgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
@@ -43,6 +44,11 @@ const LandingPage = () => {
       setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1200);
+    return () => clearTimeout(timer);
   }, []);
 
   const fadeInUp = {
@@ -64,28 +70,28 @@ const LandingPage = () => {
       icon: <Video className="w-8 h-8" />,
       title: 'Become a Story Brand',
       description:(<>
-        We don’t just generate clips—we craft <strong>brand stories</strong>. Your concept is fed through our AI storytelling engine to emerge as a polished, emotionally charged video that audiences remember and share.</>),
-      image: 'https://images.unsplash.com/photo-1588524806723-19c4dfd2bc17',
+        We don’t just generate clips we craft <strong>brand stories</strong>. Your concept is fed through our AI storytelling engine to emerge as a polished, emotionally charged video that audiences remember and share.</>),
+      image: 'brand.jpg',
     },
     {
       icon: <Wand2 className="w-8 h-8" />,
       title: 'Prompt-to-Premiere Workflow',
-      description:(<> Hand us a one-line prompt; get back a studio-quality production. Scripting, storyboarding, voice, SFX, and edits—all handled in days, not months.</>),
-      image: 'https://images.unsplash.com/photo-1543336472-fcf478c443db',
+      description:(<> Hand us a one-line prompt; get back a studio-quality production. Scripting, storyboarding, voice, SFX, and edits all handled in days, not months.</>),
+      image: 'prompt.jpg',
     },
     {
       icon: <Sparkles className="w-8 h-8" />,
       title: 'Immersive Visual Effects',
       description: (
-        <>Kinetic typography, dynamic transitions, and tactile 3D elements fuse together to <strong>add depth, drama, and “wow”</strong> to every frame—no physical set or camera crew required.</>
+        <>Kinetic typography, dynamic transitions, and tactile 3D elements fuse together to <strong>add depth, drama, and “wow”</strong> to every frame no physical set or camera crew required.</>
       ),
-      image: 'https://images.pexels.com/photos/9667639/pexels-photo-9667639.jpeg',
+      image: 'visual.jpg',
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: ' Social Media Optimized',
-      description:(<> Swipe-stopping Reels, Shorts, and TikToks— <strong>formatted, captioned, and hook-tested </strong> for each platform so your content doesn’t just play; it performs.</>),
-      image: 'https://images.pexels.com/photos/9667555/pexels-photo-9667555.jpeg',
+      description:(<> Swipe-stopping Reels, Shorts, and TikToks  <strong>formatted, captioned, and hook-tested </strong> for each platform so your content doesn’t just play; it performs.</>),
+      image: 'social.jpg',
     },
   ];
 
@@ -190,9 +196,10 @@ const LandingPage = () => {
     },
   ];
 
+  if (loading) return <Preload onFinish={() => setLoading(false)} />;
+
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
-      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div

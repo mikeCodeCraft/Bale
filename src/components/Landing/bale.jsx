@@ -170,29 +170,31 @@ const LandingPage = () => {
 
   const faqs = [
     {
-      question: 'How does AI video generation work?',
+      question: 'How is Bale different from traditional video agencies?',
       answer:
-        'We use cutting-edge AI models like Google Veo 2 & 3 and Kling to transform your scripts and ideas into professional-quality videos. Simply provide us with your concept, and our AI creates stunning visuals, animations, and effects.',
+        <>Unlike traditional agencies that rely on physical sets, camera crews, and long timelines, Bale uses advanced AI tools like Google Veo and Kling to generate <strong>studio-quality videos from text prompts</strong>. This means faster turnaround, lower costs, and more creative flexibility without sacrificing quality.</>,
     },
     {
-      question: 'What’s the typical turnaround time?',
+      question: 'What kinds of videos can you create?',
       answer:
-        'Most videos are completed within 24-48 hours. Rush deliveries are available for Elite plan subscribers, with some projects completed in as little as 6 hours.',
+        <>We specialize in <strong>brand storytelling</strong>, product explainers, launch trailers, viral-style content, and platform-optimized videos (Reels, Shorts, TikToks). Whether you're a startup, creator, or enterprise brand, we tailor each project to your visual style and strategic goals.
+</>,
     },
     {
-      question: 'Can I customize the videos after creation?',
+      question: 'How long does it take to receive a finished video?',
       answer:
-        'Absolutely! We provide revision rounds based on your plan, and you can request specific changes to colors, text, music, or visual elements to match your brand perfectly.',
+        <>
+        Turnaround times vary by plan, but most projects are delivered within <strong>3–5 business days</strong>. Our AI-first pipeline allows us to move faster without compromising creative integrity.</>,
     },
     {
-      question: 'What formats do you deliver?',
+      question: 'Do I own the videos you create for me?',
       answer:
-        'We deliver in all major formats including MP4, MOV, and optimized versions for social platforms like Instagram, TikTok, YouTube, and LinkedIn.',
+        <>Yes. All videos we deliver including edits and source files are <strong>100% yours to use, repurpose, and monetize</strong> however you like. You also receive perpetual commercial rights.</>,
     },
     {
-      question: 'Do you provide music and voiceovers?',
+      question: 'Can I request revisions or changes to a video?',
       answer:
-        'Yes! Pro and Elite plans include professional voiceovers and licensed music. We can also work with your existing brand voice or music preferences.',
+        <>Absolutely. Each plan includes at least one full round of revision. For clients on our Elite plan, we offer <strong> unlimited minor edits and dedicated creative support</strong> to ensure the final product matches your vision.</>,
     },
   ];
 

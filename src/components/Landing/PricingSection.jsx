@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
-const PricingSection = ({ pricingPlans }) => (
+const PricingSection = ({ pricingPlans, setIsBookCallOpen }) => (
   <section id="pricing" className="py-10 relative"> 
     <div className="absolute inset-0 " />
     <div className="max-w-4xl mx-auto px-2 sm:px-4 lg:px-6 relative z-10"> 
@@ -60,6 +60,7 @@ If your first month’s videos aren’t worth at least 2× what you paid, we wor
             <div className="mt-auto"> 
               <button
                 className={`w-full py-2 rounded-md font-semibold text-base transition-all duration-300 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white shadow-md hover:shadow-lg`}
+                onClick={() => setIsBookCallOpen(true)}
               >
                 Book Demo
               </button>

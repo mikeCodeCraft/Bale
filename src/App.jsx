@@ -13,18 +13,20 @@ import AuthorProfile from './components/blog/AuthorProfile';
 import Footer from './components/Landing/Footer';
 import Admin from './components/blog/Admin';
 import Preload from './components/Landing/Preload';
+import BookCallModal from './components/Landing/BookCall';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+  const [isBookCallOpen, setIsBookCallOpen] = useState(false);
 
   if (loading) return <Preload onFinish={() => setLoading(false)} />;
 
   return (
     <div className="font-sans bg-gray-50 text-gray-800 min-h-screen flex flex-col">
-      <Navbar />
+      <Navbar setIsBookCallOpen={setIsBookCallOpen} />
       <div className="flex-1">
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage setIsBookCallOpen={setIsBookCallOpen} />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/authors" element={<Authors />} />
@@ -34,6 +36,7 @@ const App = () => {
         </Routes>
       </div>
       <Footer />
+      <BookCallModal isOpen={isBookCallOpen} onClose={() => setIsBookCallOpen(false)} />
     </div>
   );
 };

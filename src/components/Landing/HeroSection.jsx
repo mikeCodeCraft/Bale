@@ -116,6 +116,7 @@ const HeroSection = ({
   heroOpacity,
   fadeInUp,
   staggerContainer,
+  setIsBookCallOpen,
 }) => {
   // Mouse position state for background animation
   const [mouse, setMouse] = useState(null); // null means no mouse yet
@@ -186,6 +187,7 @@ const HeroSection = ({
               style={{ backgroundImage: 'linear-gradient(45deg, #BA3D0A -88%, #000000 70%)' }}
               whileHover={{ scale: 1.02, boxShadow: '0 10px 20px rgba(186, 61, 10, 0.10)' }}
               whileTap={{ scale: 0.97 }}
+              onClick={() => setIsBookCallOpen(true)}
             >
               Book Call
             </motion.button>

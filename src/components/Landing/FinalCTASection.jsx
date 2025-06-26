@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-const FinalCTASection = () => (
+const FinalCTASection = ({ setIsBookCallOpen }) => (
   <section className="py-8 relative overflow-hidden"> {/* Reduced vertical padding */}
     <div className="absolute inset-0 " />
     <div className="max-w-xl mx-auto px-2 sm:px-4 lg:px-6 text-center relative z-10"> {/* Reduced max width and padding */}
@@ -25,11 +25,11 @@ const FinalCTASection = () => (
           className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white px-6 py-3 rounded-md font-bold text-base flex items-center gap-2 mx-auto shadow-lg hover:shadow-red-500/25 transition-all duration-300" // Smaller button
           whileHover={{ scale: 1.05, boxShadow: '0 10px 20px rgba(248, 113, 113, 0.2)' }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => setIsBookCallOpen(true)}
         >
           Book Free Call
-          
+          <ArrowRight className="w-5 h-5" />
         </motion.button>
-       
       </motion.div>
     </div>
   </section>

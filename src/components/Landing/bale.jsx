@@ -29,7 +29,7 @@ import FeaturesSection from './FeaturesSection';
 import FAQSection from './FAQSection';
 import Preload from './Preload';
 
-const LandingPage = () => {
+const LandingPage = ({ setIsBookCallOpen }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [openFaq, setOpenFaq] = useState(null);
@@ -230,6 +230,7 @@ const LandingPage = () => {
         heroOpacity={heroOpacity}
         fadeInUp={fadeInUp}
         staggerContainer={staggerContainer}
+        setIsBookCallOpen={setIsBookCallOpen}
       />
       <FeaturesSection features={features} />
       <HowItWorksSection />
@@ -240,10 +241,9 @@ const LandingPage = () => {
         activeTestimonial={activeTestimonial}
         setActiveTestimonial={setActiveTestimonial}
       />
-      <PricingSection pricingPlans={pricingPlans} />
+      <PricingSection pricingPlans={pricingPlans} setIsBookCallOpen={setIsBookCallOpen} />
       <FAQSection faqs={faqs} openFaq={openFaq} setOpenFaq={setOpenFaq} />
-      <FinalCTASection />
-   
+      <FinalCTASection setIsBookCallOpen={setIsBookCallOpen} />
     </div>
   );
 };

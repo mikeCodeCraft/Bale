@@ -189,7 +189,7 @@ const HeroSection = ({
               whileTap={{ scale: 0.97 }}
               onClick={() => setIsBookCallOpen(true)}
             >
-              Book Call
+              Book Demo
             </motion.button>
             <motion.button
               className="border border-gray-600 hover:border-gray-400 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 backdrop-blur-sm bg-white/5 hover:bg-white/10 transition-all duration-300"

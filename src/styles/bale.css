@@ -30,12 +30,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #fff,  #BA3D0A, #A90F0A);
+  background: #BA3D0A;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #fff, #BA3D0A);
+  background: #A90F0A;
 }
 
 .glass {

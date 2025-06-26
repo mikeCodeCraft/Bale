@@ -76,7 +76,7 @@ const Navbar = ({ setIsBookCallOpen }) => {
               className="hidden md:inline-block px-6 py-2 rounded-full font-semibold border-2 border-[#BA3D0A] text-[#BA3D0A] bg-transparent hover:bg-[#BA3D0A] hover:text-white transition shadow focus:outline-none focus:ring-2 focus:ring-[#BA3D0A] focus:ring-offset-2"
               onClick={() => setIsBookCallOpen(true)}
             >
-              Book Call
+              Book Demo
             </button>
             <button
               className="md:hidden mobile-menu-button text-white border-2 p-2 rounded-full focus:ring-0 focus:outline-none"

@@ -14,7 +14,9 @@ const Footer = () => (
           </p>
         </div>
         <div>
-          <h4 className="font-semibold mb-4">Services</h4>
+          <h4 className="font-semibold mb-4 bg-gradient-to-r from-red-400 to-orange-600 bg-clip-text text-transparent">
+            Services
+          </h4>
           <ul className="space-y-2 text-gray-400">
             <li>
               <a href="#" className="hover:text-white transition-colors">
@@ -39,7 +41,9 @@ const Footer = () => (
           </ul>
         </div>
         <div>
-          <h4 className="font-semibold mb-4">Resources</h4>
+          <h4 className="font-semibold mb-4 bg-gradient-to-r from-red-400 to-orange-600 bg-clip-text text-transparent">
+            Resources
+          </h4>
           <ul className="space-y-2 text-gray-400">
             <li>
               <a href="#" className="hover:text-white transition-colors">
@@ -52,7 +56,7 @@ const Footer = () => (
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-white transition-colors">
+              <a href="/blog" className="hover:text-white transition-colors">
                 Blog
               </a>
             </li>
@@ -64,7 +68,9 @@ const Footer = () => (
           </ul>
         </div>
         <div>
-          <h4 className="font-semibold mb-4">Company</h4>
+          <h4 className="font-semibold mb-4 bg-gradient-to-r from-red-400 to-orange-600 bg-clip-text text-transparent">
+            Company
+          </h4>
           <ul className="space-y-2 text-gray-400">
             <li>
               <a href="#" className="hover:text-white transition-colors">
@@ -90,7 +96,11 @@ const Footer = () => (
         </div>
       </div>
       <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-        <p>© 2025 <a href="https://mikecodecraft.vercel.app/">mikeCodeCraft</a>. All rights reserved. Revolutionizing video creation with AI.</p>
+        <p>
+          © 2025{' '}
+          <a href="https://mikecodecraft.vercel.app/">mikeCodeCraft</a>. All rights
+          reserved. Revolutionizing video creation with AI.
+        </p>
       </div>
     </div>
   </footer>

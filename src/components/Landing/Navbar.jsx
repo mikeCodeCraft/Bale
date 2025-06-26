@@ -61,20 +61,16 @@ const Navbar = () => {
           >
             <img src={logo} alt="Bale Logo" className="h-10 w-23" />
           </motion.div>
-         
+          {/* Desktop Nav */}
           <div className="hidden md:flex flex-1 justify-center space-x-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            {['Features', 'Pricing', 'Testimonials', 'Blog', 'FAQ'].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-gray-300 hover:text-white transition-colors duration-300 hover:scale-105 transform"
-                onClick={closeMobileMenu}
-              >
-                {item}
-              </a>
-            ))}
+            <a href="/" className="text-gray-300 hover:text-white transition-colors duration-300 hover:scale-105 transform" onClick={closeMobileMenu}>Home</a>
+            <a href="/#features" className="text-gray-300 hover:text-white transition-colors duration-300 hover:scale-105 transform" onClick={closeMobileMenu}>Features</a>
+            <a href="#pricing" className="text-gray-300 hover:text-white transition-colors duration-300 hover:scale-105 transform" onClick={closeMobileMenu}>Pricing</a>
+            <a href="#testimonials" className="text-gray-300 hover:text-white transition-colors duration-300 hover:scale-105 transform" onClick={closeMobileMenu}>Testimonials</a>
+            <button className="text-gray-300 hover:text-white transition-colors duration-300 hover:scale-105 transform" style={{background:'none',border:'none',padding:0,cursor:'pointer'}} onClick={()=>{closeMobileMenu();navigate('/blog')}}>Blog</button>
+            <a href="#faq" className="text-gray-300 hover:text-white transition-colors duration-300 hover:scale-105 transform" onClick={closeMobileMenu}>FAQ</a>
           </div>
-
+          {/* Call to Action and Mobile Menu Button */}
           <div className="flex items-center gap-4 absolute right-0 top-1/2 -translate-y-1/2">
             <a
               href="#book-call"
@@ -103,16 +99,12 @@ const Navbar = () => {
           className={`mobile-menu md:hidden bg-black/95 backdrop-blur-md transition-all duration-300 ${isMobileMenuOpen ? '' : 'hidden'}`}
         >
           <div className="px-4 py-4 space-y-4">
-            {['Features', 'Pricing', 'Testimonials', 'Blog', 'FAQ'].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="block text-gray-300 hover:text-white transition-colors"
-                onClick={closeMobileMenu}
-              >
-                {item}
-              </a>
-            ))}
+            <a href="/" className="block text-gray-300 hover:text-white transition-colors" onClick={closeMobileMenu}>Home</a>
+            <a href="#features" className="block text-gray-300 hover:text-white transition-colors" onClick={closeMobileMenu}>Features</a>
+            <a href="#pricing" className="block text-gray-300 hover:text-white transition-colors" onClick={closeMobileMenu}>Pricing</a>
+            <a href="#testimonials" className="block text-gray-300 hover:text-white transition-colors" onClick={closeMobileMenu}>Testimonials</a>
+            <button className="block text-gray-300 hover:text-white transition-colors w-full text-left" style={{background:'none',border:'none',padding:0,cursor:'pointer'}} onClick={()=>{closeMobileMenu();navigate('/blog')}}>Blog</button>
+            <a href="#faq" className="block text-gray-300 hover:text-white transition-colors" onClick={closeMobileMenu}>FAQ</a>
           </div>
         </div>
       </div>

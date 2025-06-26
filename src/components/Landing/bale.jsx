@@ -20,7 +20,7 @@ import '../../styles/bale.css';
 import logo from '../../assets/logo.svg';
 import { HeroSection } from './HeroSection';
 import { HowItWorksSection, WhatYouGetSection } from './HowItWorksSection';
-import Footer from './Footer';
+
 import PricingSection from './PricingSection';
 import TechnologySection from './TechnologySection';
 import TestimonialsSection from './TestimonialsSection';
@@ -243,7 +243,7 @@ const LandingPage = () => {
       <PricingSection pricingPlans={pricingPlans} />
       <FAQSection faqs={faqs} openFaq={openFaq} setOpenFaq={setOpenFaq} />
       <FinalCTASection />
-      <Footer />
+   
     </div>
   );
 };

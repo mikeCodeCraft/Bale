@@ -61,7 +61,7 @@ const Blog = () => {
     <div className="min-h-screen bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-0 group">
         <div className="container mx-auto">
-          <div className="text-center mb-8">
+          <div className="text-center mb-4">
             <h1 className="text-4xl md:text-6xl lg:text-5xl font-extrabold mb-10 leading-tight">
               <span
                 className="bg-clip-text text-transparent font-extrabold"
@@ -80,11 +80,11 @@ const Blog = () => {
               insights, trends, and innovations that are reshaping the creative
               industry.
             </p>
-            <motion.div className="flex justify-center gap-4 mt-6">
+            <motion.div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 items-center">
               <Link
                 to="/authors"
-                className="border-2 border-[#A90F0A] text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 shadow-lg hover:shadow-orange-800/10 transition-all duration-200"
-                style={{ backgroundImage: 'linear-gradient(45deg, #BA3D0A -88%, #000000 70%)' }}
+                className="border-2 border-[#A90F0A] text-white px-5 py-2.5 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 shadow-lg hover:bg-red-600 transition-all duration-200 min-w-[120px] text-center"
+                style={{ backgroundImage: `red` }}
                 whileHover={{ scale: 1.02, boxShadow: '0 10px 20px rgba(186, 61, 10, 0.10)' }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -92,7 +92,7 @@ const Blog = () => {
               </Link>
               <Link
                 to="/admin"
-                className="inline-block border border-orange-600 px-6 py-2 rounded-lg font-semibold text-orange-500 hover:bg-orange-600 hover:text-white transition-all"
+                className="border-2 border-orange-600 px-5 py-2.5 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 text-orange-500 hover:bg-orange-600 hover:text-white transition-all duration-200 min-w-[120px] text-center"
               >
                 Admin
               </Link>
@@ -197,9 +197,9 @@ const Blog = () => {
       </section>
       {/* Featured Articles */}
       {searchTerm === "" && selectedCategory === "All" && (
-        <section className="py-10 px-2">
+        <section className="pt-0 pb-0 px-2 mt-[-90px] md:mt-[-50px]">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-orange-500">
+            <h2 className="text-2xl font-bold mb-6 text-orange-500">
               Featured Articles
             </h2>
             <div className="grid md:grid-cols-2 gap-6">

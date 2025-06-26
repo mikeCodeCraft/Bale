@@ -7,7 +7,7 @@ import Pagination from "./Pagination";
 import FinalCTASection from "../Landing/FinalCTASection";
 import Preload from "../Landing/Preload";
 import { motion } from 'framer-motion';
-import { Play, Clock, DollarSign, Users } from 'lucide-react';
+import { Play, Clock, DollarSign, Users, Search } from 'lucide-react';
 
 const BRAND_ORANGE = '#BA3D0A';
 const BRAND_RED = '#A90F0A';
@@ -21,6 +21,7 @@ const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [posts, setPosts] = useState(blogPosts);
   const [loading, setLoading] = useState(true);
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
   const postsPerPage = 6;
 
   // Preload logic
@@ -58,7 +59,7 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 group">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-0 group">
         <div className="container mx-auto">
           <div className="text-center mb-8">
             <h1 className="text-4xl md:text-6xl lg:text-5xl font-extrabold mb-10 leading-tight">
@@ -74,7 +75,7 @@ const Blog = () => {
               </span>
               <span>Blog</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-gray-300 mb-8 max-w-xl mx-auto leading-relaxed">
               Dive deep into the world of AI-powered video production. Discover
               insights, trends, and innovations that are reshaping the creative
               industry.
@@ -98,32 +99,99 @@ const Blog = () => {
             </motion.div>
           </div>
           {/* Search, Category, and Sort */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-2 mb-4">
-            <input
-              type="text"
-              placeholder="Search articles..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full md:w-1/4 px-3 py-2 rounded bg-gray-800 text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-1 focus:ring-orange-500"
-            />
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full md:w-auto px-3 py-2 rounded bg-gray-800 text-white text-sm focus:outline-none focus:ring-1 focus:ring-orange-500"
-            >
-              {categories.map((cat) => (
-                <option key={cat} value={cat}>{cat}</option>
-              ))}
-            </select>
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="w-full md:w-auto px-3 py-2 rounded bg-gray-800 text-white text-sm focus:outline-none focus:ring-1 focus:ring-orange-500"
-            >
-              <option value="date">Newest</option>
-              <option value="popular">Most Popular</option>
-              <option value="title">Title</option>
-            </select>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-2 mb-0">
+            {/* Mobile: Search Icon Toggle */}
+            <div className="flex w-full md:hidden justify-center items-center gap-2">
+              <button
+                aria-label="Show search"
+                className="p-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                onClick={() => setShowMobileSearch((prev) => !prev)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
+                </svg>
+              </button>
+              {showMobileSearch && (
+                <input
+                  type="text"
+                  placeholder="Search articles..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-32 px-3 py-2 rounded bg-gray-800 text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-1 focus:ring-orange-500 transition-all duration-200"
+                  autoFocus
+                />
+              )}
+              {/* Category Dropdown */}
+              <div className="relative w-24">
+                <select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  className="appearance-none w-full px-2 py-2 pr-8 rounded bg-gray-800 text-white text-sm focus:outline-none focus:ring-1 focus:ring-orange-500"
+                >
+                  {categories.map((cat) => (
+                    <option key={cat} value={cat}>{cat}</option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                </span>
+              </div>
+              {/* Sort Dropdown */}
+              <div className="relative w-20">
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="appearance-none w-full px-2 py-2 pr-8 rounded bg-gray-800 text-white text-sm focus:outline-none focus:ring-1 focus:ring-orange-500"
+                >
+                  <option value="date">Newest</option>
+                  <option value="popular">Most Popular</option>
+                  <option value="title">Title</option>
+                </select>
+                <span className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                </span>
+              </div>
+            </div>
+            {/* Desktop: Always show search bar and controls */}
+            <div className="hidden md:flex w-full justify-center items-center gap-2">
+              <input
+                type="text"
+                placeholder="Search articles..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-1/4 px-3 py-2 rounded bg-gray-800 text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-1 focus:ring-orange-500"
+              />
+              {/* Category Dropdown */}
+              <div className="relative w-32">
+                <select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  className="appearance-none w-full px-3 py-2 pr-8 rounded bg-gray-800 text-white text-sm focus:outline-none focus:ring-1 focus:ring-orange-500"
+                >
+                  {categories.map((cat) => (
+                    <option key={cat} value={cat}>{cat}</option>
+                  ))}
+                </select>
+                <span className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                </span>
+              </div>
+              {/* Sort Dropdown */}
+              <div className="relative w-28">
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="appearance-none w-full px-3 py-2 pr-8 rounded bg-gray-800 text-white text-sm focus:outline-none focus:ring-1 focus:ring-orange-500"
+                >
+                  <option value="date">Newest</option>
+                  <option value="popular">Most Popular</option>
+                  <option value="title">Title</option>
+                </select>
+                <span className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -178,8 +246,8 @@ const Blog = () => {
         </section>
       )}
       {/* Main Articles */}
-      <section className="py-16 px-24">
-        <div className="container mx-auto">
+      <section className="py-16 px-2">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-12">
             {searchTerm || selectedCategory !== "All"
               ? `Search Results (${filteredPosts.length})`
@@ -193,52 +261,53 @@ const Blog = () => {
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+              <div className="grid md:grid-cols-2 gap-6">
                 {currentPosts.map((post, index) => (
-                  <motion.div
+                  <Link
                     key={post.id}
-                    className="group relative overflow-hidden rounded-xl bg-white/5 border border-red-800 hover:border-red-600 transition-all duration-500 p-4 flex flex-col h-full"
-                    initial={{ opacity: 0, y: 60 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.01 }}
+                    to={`/blog/${post.id}`}
+                    className="group cursor-pointer"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-red-300/10 to-orange-300/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="relative p-2 flex-1 flex flex-col">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0">
-                          <div className="w-10 h-10 bg-gradient-to-br from-orange-300 to-red-600 rounded-lg flex items-center justify-center text-white group-hover:scale-105 transition-transform duration-300 text-xs font-bold">
-                            {post.category[0]}
+                    <motion.div
+                      className="relative overflow-hidden rounded-xl bg-white/5 border border-red-800 hover:border-red-600 transition-all duration-500 p-4 flex flex-col h-full"
+                      initial={{ opacity: 0, y: 60 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      whileHover={{ scale: 1.01 }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-red-300/10 to-orange-300/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="relative p-2 flex-1 flex flex-col">
+                        <div className="mb-2 relative h-28 rounded-md overflow-hidden">
+                          <img
+                            src={post.image}
+                            alt={post.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                          <div className="absolute bottom-2 left-2">
+                            <span className="bg-red-600 px-3 py-1 rounded-full text-xs font-semibold">
+                              {post.category}
+                            </span>
                           </div>
                         </div>
-                        <div className="flex-1">
-                          <h3 className="text-lg font-bold mb-1 group-hover:text-orange-300 transition-colors duration-300">
-                            <Link to={`/blog/${post.id}`}>{post.title}</Link>
-                          </h3>
-                          <p className="text-gray-300 leading-relaxed mb-2 text-sm">
-                            {post.excerpt}
-                          </p>
-                          <div className="relative h-28 rounded-md overflow-hidden mb-2">
-                            <img
-                              src={post.image}
-                              alt={post.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                          </div>
-                          <div className="flex items-center justify-between text-xs text-gray-400 mt-2">
-                            <span>{authors[post.authorId]?.name}</span>
-                            <div className="flex items-center space-x-2">
-                              <span>{post.views} views</span>
-                              <span>•</span>
-                              <span>{post.readTime}</span>
-                            </div>
+                        <h3 className="text-lg font-bold mb-1 group-hover:text-orange-300 transition-colors duration-300">
+                          {post.title}
+                        </h3>
+                        <p className="text-gray-300 leading-relaxed mb-2 text-sm">
+                          {post.excerpt}
+                        </p>
+                        <div className="flex items-center justify-between text-xs text-gray-400 mt-2">
+                          <span>{authors[post.authorId]?.name}</span>
+                          <div className="flex items-center space-x-2">
+                            <span>{post.views} views</span>
+                            <span>•</span>
+                            <span>{post.readTime}</span>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  </Link>
                 ))}
               </div>
               {totalPages > 1 && (

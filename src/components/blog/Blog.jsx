@@ -57,7 +57,7 @@ const Blog = () => {
   const featuredPosts = posts.filter((post) => post.featured);
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 group">
         <div className="container mx-auto">
           <div className="text-center mb-8">

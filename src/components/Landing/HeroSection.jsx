@@ -144,6 +144,7 @@ const HeroSection = ({
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 group"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      style={{ fontFamily: "'Inter', sans-serif" }}
     >
       {/* Particle Background */}
       <ParticleBackground />

@@ -4,7 +4,7 @@ import { blogPosts } from "./data/blogPosts";
 import { authors } from "./data/authors";
 import { categories } from "./data/constants";
 import Pagination from "./Pagination";
-import Newsletter from "./Newsletter";
+import FinalCTASection from "../Landing/FinalCTASection";
 import Preload from "../Landing/Preload";
 import { motion } from 'framer-motion';
 import { Play, Clock, DollarSign, Users } from 'lucide-react';
@@ -98,18 +98,18 @@ const Blog = () => {
             </motion.div>
           </div>
           {/* Search, Category, and Sort */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-4 mb-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-2 mb-4">
             <input
               type="text"
               placeholder="Search articles..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full md:w-1/3 px-4 py-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full md:w-1/4 px-3 py-2 rounded bg-gray-800 text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-1 focus:ring-orange-500"
             />
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full md:w-auto px-4 py-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full md:w-auto px-3 py-2 rounded bg-gray-800 text-white text-sm focus:outline-none focus:ring-1 focus:ring-orange-500"
             >
               {categories.map((cat) => (
                 <option key={cat} value={cat}>{cat}</option>
@@ -118,7 +118,7 @@ const Blog = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="w-full md:w-auto px-4 py-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="w-full md:w-auto px-3 py-2 rounded bg-gray-800 text-white text-sm focus:outline-none focus:ring-1 focus:ring-orange-500"
             >
               <option value="date">Newest</option>
               <option value="popular">Most Popular</option>
@@ -129,19 +129,19 @@ const Blog = () => {
       </section>
       {/* Featured Articles */}
       {searchTerm === "" && selectedCategory === "All" && (
-        <section className="py-16 px-4">
-          <div className="container mx-auto">
-            <h2 className="text-3xl font-bold mb-12 text-orange-500">
+        <section className="py-10 px-2">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold mb-8 text-orange-500">
               Featured Articles
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6">
               {featuredPosts.map((post) => (
                 <Link
                   key={post.id}
                   to={`/blog/${post.id}`}
                   className="group cursor-pointer"
                 >
-                  <article className="bg-gray-900 rounded-xl overflow-hidden hover:bg-gray-800 transition-all duration-300 hover:scale-105">
+                  <article className="bg-gray-900 rounded-xl overflow-hidden hover:bg-gray-800 transition-all duration-300 hover:scale-105 h-full flex flex-col">
                     <div className="aspect-video bg-gradient-to-r from-red-900/20 to-orange-900/20 relative overflow-hidden">
                       <img
                         src={post.image}
@@ -155,14 +155,14 @@ const Blog = () => {
                         </span>
                       </div>
                     </div>
-                    <div className="p-6">
+                    <div className="p-6 flex flex-col flex-1">
                       <h3 className="text-xl font-bold mb-3 group-hover:text-orange-500 transition-colors">
                         {post.title}
                       </h3>
-                      <p className="text-gray-400 mb-4 leading-relaxed">
+                      <p className="text-gray-400 mb-4 leading-relaxed flex-1">
                         {post.excerpt}
                       </p>
-                      <div className="flex items-center justify-between text-sm text-gray-500">
+                      <div className="flex items-center justify-between text-sm text-gray-500 mt-auto">
                         <span>{authors[post.authorId]?.name}</span>
                         <div className="flex items-center space-x-4">
                           <span>{post.views} views</span>
@@ -178,7 +178,7 @@ const Blog = () => {
         </section>
       )}
       {/* Main Articles */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-24">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold mb-12">
             {searchTerm || selectedCategory !== "All"
@@ -193,45 +193,52 @@ const Blog = () => {
             </div>
           ) : (
             <>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {currentPosts.map((post) => (
-                  <Link
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+                {currentPosts.map((post, index) => (
+                  <motion.div
                     key={post.id}
-                    to={`/blog/${post.id}`}
-                    className="group cursor-pointer"
+                    className="group relative overflow-hidden rounded-xl bg-white/5 border border-red-800 hover:border-red-600 transition-all duration-500 p-4 flex flex-col h-full"
+                    initial={{ opacity: 0, y: 60 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.01 }}
                   >
-                    <article className="bg-gray-900 rounded-xl overflow-hidden hover:bg-gray-800 transition-all duration-300 hover:scale-105">
-                      <div className="aspect-video bg-gradient-to-r from-orange-900/20 to-red-900/20 relative overflow-hidden">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                        <div className="absolute bottom-4 left-4">
-                          <span className="bg-orange-600 px-3 py-1 rounded-full text-xs font-semibold">
-                            {post.category}
-                          </span>
+                    <div className="absolute inset-0 bg-gradient-to-br from-red-300/10 to-orange-300/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative p-2 flex-1 flex flex-col">
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0">
+                          <div className="w-10 h-10 bg-gradient-to-br from-orange-300 to-red-600 rounded-lg flex items-center justify-center text-white group-hover:scale-105 transition-transform duration-300 text-xs font-bold">
+                            {post.category[0]}
+                          </div>
                         </div>
-                      </div>
-                      <div className="p-6">
-                        <h3 className="text-lg font-bold mb-3 group-hover:text-orange-500 transition-colors">
-                          {post.title}
-                        </h3>
-                        <p className="text-gray-400 mb-4 text-sm leading-relaxed">
-                          {post.excerpt}
-                        </p>
-                        <div className="flex items-center justify-between text-xs text-gray-500">
-                          <span>{authors[post.authorId]?.name}</span>
-                          <div className="flex items-center space-x-2">
-                            <span>{post.views} views</span>
-                            <span>•</span>
-                            <span>{post.readTime}</span>
+                        <div className="flex-1">
+                          <h3 className="text-lg font-bold mb-1 group-hover:text-orange-300 transition-colors duration-300">
+                            <Link to={`/blog/${post.id}`}>{post.title}</Link>
+                          </h3>
+                          <p className="text-gray-300 leading-relaxed mb-2 text-sm">
+                            {post.excerpt}
+                          </p>
+                          <div className="relative h-28 rounded-md overflow-hidden mb-2">
+                            <img
+                              src={post.image}
+                              alt={post.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                          </div>
+                          <div className="flex items-center justify-between text-xs text-gray-400 mt-2">
+                            <span>{authors[post.authorId]?.name}</span>
+                            <div className="flex items-center space-x-2">
+                              <span>{post.views} views</span>
+                              <span>•</span>
+                              <span>{post.readTime}</span>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </article>
-                  </Link>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
               {totalPages > 1 && (
@@ -245,7 +252,8 @@ const Blog = () => {
           )}
         </div>
       </section>
-      <Newsletter />
+   
+      <FinalCTASection />
     </div>
   );
 };

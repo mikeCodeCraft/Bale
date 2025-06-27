@@ -83,36 +83,36 @@ const AuthorProfile = () => {
             <h2 className="text-3xl font-bold mb-8">
               Articles by {author.name}
             </h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-3">
               {authorPosts.map((post) => (
                 <Link
                   key={post.id}
                   to={`/blog/${post.id}`}
                   className="group"
                 >
-                  <article className="bg-gray-900 rounded-xl overflow-hidden hover:bg-gray-800 transition-all duration-300 hover:scale-105">
-                    <div className="aspect-video bg-gradient-to-r from-orange-900/20 to-red-900/20 relative overflow-hidden">
+                  <article className="bg-gray-900 rounded-md overflow-hidden hover:bg-gray-800 transition-all duration-300 hover:scale-105 min-h-[240px] p-1 flex flex-col">
+                    <div className="h-24 bg-gradient-to-r from-orange-900/20 to-red-900/20 relative overflow-hidden rounded">
                       <img
                         src={post.image}
                         alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
-                      <div className="absolute bottom-4 left-4">
-                        <span className="bg-orange-600 px-3 py-1 rounded-full text-xs font-semibold">
+                      <div className="absolute bottom-1 left-1">
+                        <span className="bg-orange-600 px-1.5 py-0.5 rounded-full text-xs font-semibold">
                           {post.category}
                         </span>
                       </div>
                     </div>
-                    <div className="p-6">
-                      <h3 className="text-lg font-bold mb-3 group-hover:text-orange-500 transition-colors">
+                    <div className="p-2 flex-1 flex flex-col">
+                      <h3 className="text-sm font-bold mb-1 group-hover:text-orange-500 transition-colors">
                         {post.title}
                       </h3>
-                      <p className="text-gray-400 mb-4 text-sm leading-relaxed">
+                      <p className="text-gray-400 mb-2 text-xs leading-tight flex-1">
                         {post.excerpt}
                       </p>
-                      <div className="flex items-center justify-between text-xs text-gray-500">
+                      <div className="flex items-center justify-between text-xs text-gray-500 mt-auto">
                         <span>{post.date}</span>
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-1">
                           <span>{post.views} views</span>
                           <span>•</span>
                           <span>{post.readTime}</span>

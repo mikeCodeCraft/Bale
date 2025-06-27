@@ -6,6 +6,7 @@ import { categories } from "./data/constants";
 import Pagination from "./Pagination";
 import FinalCTASection from "../Landing/FinalCTASection";
 import Preload from "../Landing/Preload";
+import LandingPage from "../Landing/bale";
 import { motion } from 'framer-motion';
 import { Play, Clock, DollarSign, Users, Search } from 'lucide-react';
 
@@ -14,7 +15,7 @@ const BRAND_RED = '#A90F0A';
 const BRAND_BLACK = '#000000';
 const BRAND_WHITE = '#FFFFFF';
 
-const Blog = () => {
+const Blog = ({ setIsBookCallOpen }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortBy, setSortBy] = useState("date");
@@ -321,8 +322,7 @@ const Blog = () => {
           )}
         </div>
       </section>
-   
-      <FinalCTASection />
+      <FinalCTASection setIsBookCallOpen={setIsBookCallOpen} />
     </div>
   );
 };

@@ -29,7 +29,7 @@ const App = () => {
       <div className="flex-1">
         <Routes>
           <Route path="/" element={<LandingPage setIsBookCallOpen={setIsBookCallOpen} />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog" element={<Blog setIsBookCallOpen={setIsBookCallOpen} />} />
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/authors" element={<Authors />} />
           <Route path="/authors/:id" element={<AuthorProfile />} />

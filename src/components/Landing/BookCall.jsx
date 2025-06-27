@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   X, 
@@ -29,6 +29,14 @@ const BookCallModal = ({ isOpen, onClose, isDarkMode }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    if (isSubmitted && modalRef.current) {
+      modalRef.current.scrollTop = 0;
+    }
+  }, [isSubmitted]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -76,27 +84,13 @@ const BookCallModal = ({ isOpen, onClose, isDarkMode }) => {
     setIsSubmitting(false);
     setIsSubmitted(true);
     
-    // Reset form after 3 seconds and close modal
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        preferredDate: '',
-        preferredTime: '',
-        message: '',
-        callType: 'consultation'
-      });
-      onClose();
-    }, 3000);
+    // Remove auto-close and reset logic here
   };
 
   const callTypes = [
     { value: 'consultation', label: 'Free Consultation', duration: '30 min' },
-    { value: 'demo', label: 'Product Demo', duration: '45 min' },
-    { value: 'strategy', label: 'Strategy Session', duration: '60 min' }
+    { value: 'demo', label: 'Product Demo', duration: '30 min' },
+    { value: 'strategy', label: 'Strategy Session', duration: '30 min' }
   ];
 
   // Get tomorrow's date as minimum selectable date
@@ -117,11 +111,12 @@ const BookCallModal = ({ isOpen, onClose, isDarkMode }) => {
         onClick={onClose}
       >
         <motion.div
+          ref={modalRef}
           initial={{ scale: 0.8, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.8, opacity: 0, y: 20 }}
           transition={{ type: "spring", duration: 0.5 }}
-          className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl"
+          className={`relative w-full max-w-2xl max-h-[90vh] bg-white rounded-2xl shadow-2xl ${isSubmitted ? 'overflow-hidden' : 'overflow-y-auto'}`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
@@ -151,7 +146,7 @@ const BookCallModal = ({ isOpen, onClose, isDarkMode }) => {
                 exit={{ opacity: 0, scale: 0.8 }}
                 className="absolute inset-0 bg-white rounded-2xl flex items-center justify-center z-10"
               >
-                <div className="text-center p-8">
+                <div className="text-center p-8 w-full">
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
@@ -164,9 +159,25 @@ const BookCallModal = ({ isOpen, onClose, isDarkMode }) => {
                   <p className="text-gray-600 mb-4">
                     We've sent you a Google Meet invitation with all the details.
                   </p>
-                  <p className="text-sm text-gray-500">
-                    Redirecting you back in a moment...
-                  </p>
+                  <button
+                    className="mt-4 px-6 py-2 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-lg font-semibold hover:from-red-700 hover:to-orange-700 transition-all"
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setFormData({
+                        name: '',
+                        email: '',
+                        company: '',
+                        phone: '',
+                        preferredDate: '',
+                        preferredTime: '',
+                        message: '',
+                        callType: 'consultation'
+                      });
+                      onClose();
+                    }}
+                  >
+                    Close
+                  </button>
                 </div>
               </motion.div>
             )}

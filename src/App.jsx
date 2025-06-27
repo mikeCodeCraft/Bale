@@ -12,6 +12,8 @@ import Authors from './components/blog/Authors';
 import AuthorProfile from './components/blog/AuthorProfile';
 import Footer from './components/Landing/Footer';
 import Admin from './components/blog/Admin';
+import AdminCreate from './components/blog/AdminCreate';
+import AdminEdit from './components/blog/AdminEdit';
 import Preload from './components/Landing/Preload';
 import BookCallModal from './components/Landing/BookCall';
 
@@ -32,6 +34,8 @@ const App = () => {
           <Route path="/authors" element={<Authors />} />
           <Route path="/authors/:id" element={<AuthorProfile />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/create" element={<AdminCreate />} />
+          <Route path="/admin/edit/:id" element={<AdminEdit />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

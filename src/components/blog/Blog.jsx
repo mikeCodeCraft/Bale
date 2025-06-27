@@ -83,7 +83,7 @@ const Blog = () => {
             <motion.div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 items-center">
               <Link
                 to="/authors"
-                className="border-2 border-[#A90F0A] text-white px-5 py-2.5 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 shadow-lg hover:bg-red-600 transition-all duration-200 min-w-[120px] text-center"
+                className="border border-gray-600 hover:border-gray-400 text-white px-8 py-4 rounded-lg font-semibold text-lg flex items-center gap-2 backdrop-blur-sm bg-white/5 hover:bg-white/10 transition-all duration-300"
                 style={{ backgroundImage: `red` }}
                 whileHover={{ scale: 1.02, boxShadow: '0 10px 20px rgba(186, 61, 10, 0.10)' }}
                 whileTap={{ scale: 0.97 }}
@@ -92,7 +92,7 @@ const Blog = () => {
               </Link>
               <Link
                 to="/admin"
-                className="border-2 border-orange-600 px-5 py-2.5 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 text-orange-500 hover:bg-orange-600 hover:text-white transition-all duration-200 min-w-[120px] text-center"
+                className="border-2 border-gray-600 px-5 py-2.5 rounded-lg font-semibold text-lg flex items-center justify-center gap-2 text-orange-500 hover:bg-orange-600 hover:text-white transition-all duration-200 min-w-[120px] text-center"
               >
                 Admin
               </Link>

@@ -91,7 +91,7 @@ const AuthorProfile = () => {
                   className="group"
                 >
                   <article className="bg-gray-900 rounded-md overflow-hidden hover:bg-gray-800 transition-all duration-300 hover:scale-105 min-h-[240px] p-1 flex flex-col">
-                    <div className="h-24 bg-gradient-to-r from-orange-900/20 to-red-900/20 relative overflow-hidden rounded">
+                    <div className="h-16 bg-gradient-to-r from-orange-900/20 to-red-900/20 relative overflow-hidden rounded">
                       <img
                         src={post.image}
                         alt={post.title}

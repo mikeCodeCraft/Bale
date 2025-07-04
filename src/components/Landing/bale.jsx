@@ -210,6 +210,7 @@ const LandingPage = ({ setIsBookCallOpen }) => {
       <meta name="description" content="Bale helps you create cinematic videos using AI. Turn prompts into powerful, shareable content in days, not months." />
       <meta property="og:title" content="Bale — AI Video Studio" />
       <meta property="og:description" content="Generate brand-worthy videos using just a prompt. Fast, stunning, and social-ready." />
+      <meta property="og:image" content="https://bale1.vercel.app/cenema.jpg" />
       <link rel="icon" type="image/png" href="/src/assets/favicon.png" />
     </Helmet>
     <div className="min-h-screen bg-black text-white overflow-hidden">

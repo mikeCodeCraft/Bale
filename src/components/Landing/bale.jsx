@@ -102,7 +102,7 @@ const LandingPage = ({ setIsBookCallOpen }) => {
       content:
         "Bale transformed our video marketing strategy. We're now producing content 10x faster than before, and the quality is absolutely stunning.",
       rating: 5,
-      image: 'https://images.pexels.com/photos/3031396/pexels-photo-3031396.jpeg',
+      image: 'gift.jpg',
     },
     {
       name: 'Marcus Rodriguez',
@@ -110,7 +110,7 @@ const LandingPage = ({ setIsBookCallOpen }) => {
       content:
         'The AI-generated videos from Bale are indistinguishable from traditional production. Our engagement rates have increased by 300%.',
       rating: 5,
-      image: 'https://images.unsplash.com/photo-1637979910374-ce7e8736b670',
+      image: 'gift2.jpg',
     },
     {
       name: 'Emily Watson',
@@ -118,7 +118,7 @@ const LandingPage = ({ setIsBookCallOpen }) => {
       content:
         'What used to take us weeks and thousands of dollars now takes hours. Bale has revolutionized how we approach video content.',
       rating: 5,
-      image: 'https://images.pexels.com/photos/3031396/pexels-photo-3031396.jpeg',
+      image: 'gift1.jpg',
     },
   ];
 

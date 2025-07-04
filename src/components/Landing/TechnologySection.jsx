@@ -25,7 +25,7 @@ const techList = [
 ];
 
 const TechnologySection = () => (
-  <section className="py-10 relative overflow-hidden">
+  <section className="py-20 relative overflow-hidden">
     <div className="absolute inset-0 " />
     <div className="max-w-5xl mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
       <motion.div
@@ -45,7 +45,7 @@ const TechnologySection = () => (
           We leverage the most advanced AI video generation technologies available today
         </p>
       </motion.div>
-      <div className="relative w-full overflow-x-hidden min-h-[30rem] flex items-center"> 
+      <div className="relative w-full overflow-x-hidden min-h-[20rem] flex items-center"> 
         <div className="marquee flex w-max gap-8 animate-marquee hover:[animation-play-state:paused]">
           {techList.concat(techList).map((tech, index) => (
             <motion.div

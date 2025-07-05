@@ -9,11 +9,18 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.png', 'pwa-icon-192.png', 'pwa-icon-512.png'],
+      includeAssets: [
+        'favicon.png',
+        'pwa-icon-192.png',
+        'pwa-icon-512.png',
+        'cenema.jpg',  // add your other static images here
+        'gift1.jpg',
+        'gift2.jpg',
+        'gift.jpg',
+      ],
       manifest: {
         name: 'Bale — AI Video Studio',
         short_name: 'Bale',
-        description: 'Create cinematic videos with AI in minutes.',
         theme_color: '#000000',
         background_color: '#000000',
         display: 'standalone',
@@ -31,7 +38,22 @@ export default defineConfig({
           },
         ],
       },
+      workbox: {
+        runtimeCaching: [
+          {
+            urlPattern: ({ request }) =>
+              request.destination === 'image',
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'images-cache',
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+              },
+            },
+          },
+        ],
+      },
     }),
   ],
-  base: process.env.VITE_BASE_PATH || '/',
 });

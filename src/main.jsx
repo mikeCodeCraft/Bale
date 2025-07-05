@@ -5,10 +5,10 @@ import App from "./App";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./styles/index.css";
 
-// ✅ Add this line
+
 import { registerSW } from "virtual:pwa-register";
 
-// ✅ Register the service worker (optional: show update ready UI)
+
 registerSW({
   onNeedRefresh() {
     console.log("A new version is available. Reload to update.");

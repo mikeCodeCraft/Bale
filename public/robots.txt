@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://bale1.vercel.app/sitemap.xml

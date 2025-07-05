@@ -13,10 +13,22 @@ export default defineConfig({
         'favicon.png',
         'pwa-icon-192.png',
         'pwa-icon-512.png',
-        'cenema.jpg',  // add your other static images here
+        'cenema.jpg', 
         'gift1.jpg',
         'gift2.jpg',
         'gift.jpg',
+        'brand',
+        'cam_focus.jpg',
+        'how.jpg',
+        'prompt.jpg',
+        'real.jpg',
+        'social.jpg',
+        'texture.svg',
+        'view-black-white-light-projector-theatre.jpg',
+        'visual.jpg',
+        'voice.jpg',
+        'what.jpg'
+
       ],
       manifest: {
         name: 'Bale — AI Video Studio',
@@ -48,7 +60,7 @@ export default defineConfig({
               cacheName: 'images-cache',
               expiration: {
                 maxEntries: 50,
-                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 Days
+                maxAgeSeconds: 60 * 60 * 24 * 30, 
               },
             },
           },
